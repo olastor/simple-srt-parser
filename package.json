@@ -1,0 +1,26 @@
+{
+  "name": "simple-srt-parser",
+  "version": "0.1.0",
+  "description": "A simple SRT parser",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "vitest",
+    "biome:check": "pnpm exec biome check --apply ./src",
+    "biome:format": "pnpm exec biome format --write ./src",
+    "build": "tsc"
+  },
+  "author": "Sebastian Kussl",
+  "keywords": [
+    "srt",
+    "parser",
+    "subtitle",
+    "subtitles"
+  ],
+  "license": "MIT",
+  "packageManager": "pnpm@10.14.0",
+  "devDependencies": {
+    "@biomejs/biome": "^2.1.4",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
