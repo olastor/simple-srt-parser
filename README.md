@@ -1,4 +1,4 @@
-# srt-parser
+# simple-srt-parser
 
 Simple SRT parser without dependencies.
 
