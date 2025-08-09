@@ -32,13 +32,13 @@ export const parseTime = (time: string): number => {
     throw new Error('time must be in the format HH:MM:SS,SSS, found: ' + time);
   }
 
-  const hours = parseInt(parts[0]);
-  const minutes = parseInt(parts[1]);
+  const hours = Number.parseInt(parts[0], 10);
+  const minutes = Number.parseInt(parts[1], 10);
   const secondsPart = parts[2].split(',');
-  const seconds = parseInt(secondsPart[0]);
+  const seconds = Number.parseInt(secondsPart[0], 10);
   let milliseconds = 0;
   if (secondsPart.length > 1) {
-    milliseconds = parseInt(secondsPart[1]);
+    milliseconds = Number.parseInt(secondsPart[1], 10);
   }
 
   const isNotNaN = ![hours, minutes, seconds, milliseconds].some(Number.isNaN);
@@ -82,7 +82,7 @@ export const parseSubtitles = (srt: string): Subtitle[] => {
         if (!indexMatch) {
           throw new Error('index must be an integer, found: ' + line.trim());
         }
-        const index = parseInt(indexMatch[0]);
+        const index = Number.parseInt(indexMatch[0], 10);
         if (
           !(
             (subtitles.length === 0 && index === 1) ||
@@ -110,7 +110,7 @@ export const parseSubtitles = (srt: string): Subtitle[] => {
         if (!line.includes('-->')) {
           throw new Error(
             'time must be in the format HH:MM:SS,SSS --> HH:MM:SS,SSS, found: ' +
-            line.trim(),
+              line.trim(),
           );
         }
         const [start, end] = line.trim().split('-->');
