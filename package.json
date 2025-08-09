@@ -2,12 +2,29 @@
   "name": "simple-srt-parser",
   "version": "0.1.0",
   "description": "A simple SRT parser",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE.md"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "test": "vitest",
     "biome:check": "pnpm exec biome check ./src",
     "biome:format": "pnpm exec biome format --write ./src",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "pnpm run build && pnpm test"
   },
   "author": "Sebastian Kussl",
   "keywords": [
@@ -18,9 +35,21 @@
   ],
   "license": "MIT",
   "packageManager": "pnpm@10.14.0",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@biomejs/biome": "^2.1.4",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
+  },
+  "homepage": "https://github.com/olastor/simple-srt-parser#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olastor/simple-srt-parser"
+  },
+  "bugs": {
+    "url": "https://github.com/olastor/simple-srt-parser/issues"
   }
 }
