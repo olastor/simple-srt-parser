@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "test": "vitest",
-    "biome:check": "pnpm exec biome check --apply ./src",
+    "biome:check": "pnpm exec biome check ./src",
     "biome:format": "pnpm exec biome format --write ./src",
     "build": "tsc"
   },
